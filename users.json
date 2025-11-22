@@ -4,5 +4,17 @@
         "username": "marive",
         "email": "marive@gmail.com",
         "phone": "01008643298"
+    },
+    {
+        "id": 2,
+        "username": "marline",
+        "email": "marline@gmail.com",
+        "phone": "01549347024"
+    },
+    {
+        "id": 3,
+        "username": "zeyad",
+        "email": "zeyad@gmail.com",
+        "phone": "01001001000"
     }
 ]

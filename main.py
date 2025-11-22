@@ -36,7 +36,7 @@ def signup(user: User):
     # Check for duplicate email
     for u in users:
         if u["email"] == user.email:
-            raise HTTPException(status_code=400, detail="Email already registered")
+            raise HTTPException(status_code=404, detail="Email already registered")
 
     new_user = {
         "id": len(users) + 1,
@@ -50,6 +50,21 @@ def signup(user: User):
 
     return {"message": "User signed up successfully", "user": new_user}
 
+#Login model
+class Loginrequest(BaseModel):
+    username: str
+    email: str
+
+#Login route
+@app.post("/login")
+def login(data : Loginrequest):
+    users = load_users()
+
+    for u in users :
+        if u["email"] == data.email and u["username"] == data.username:
+            return {"Login successful."}
+    
+    raise HTTPException(status_code= 404, detail= "User not found")
 
 @app.get("/")
 def home():
