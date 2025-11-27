@@ -2,8 +2,11 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import json
 import os
+from items import router as items_router
 
 app = FastAPI()
+
+app.include_router(items_router)
 
 # JSON file to store users
 USERS_FILE = "users.json"
