@@ -55,3 +55,24 @@ def my_items(user_id: int):
     items = load_items()
     user_items = [i for i in items if i["user_id"] == user_id]
     return user_items
+
+@router.get("/search")
+def search_items(q: str):
+    with open(ITEMS_FILE, "r") as f:
+        items = json.load(f)
+
+    # Convert search text to lowercase
+    query = q.lower()
+
+    # Find matching items
+    results = [
+        item for item in items 
+        if query in item["description"].lower() or query in item["title"].lower()
+    ]
+
+    return {"results": results, "count": len(results)}
+
+@router.get("/items")
+def get_all_items():
+    items = load_items()
+    return items
