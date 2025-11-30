@@ -65,9 +65,9 @@ def login(data : Loginrequest):
 
     for u in users :
         if u["email"] == data.email and u["username"] == data.username:
-            return {"Login successful."}
-    
-    raise HTTPException(status_code= 404, detail= "User not found")
+            return {"message": "Login successful", "user_id": u["id"]}
+
+    raise HTTPException(status_code=404, detail="User not found")
 
 @app.get("/")
 def home():
