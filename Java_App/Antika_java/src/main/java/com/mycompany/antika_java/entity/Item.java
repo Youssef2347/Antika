@@ -9,5 +9,51 @@ package com.mycompany.antika_java.entity;
  * @author hp
  */
 public class Item {
+    private int id;
+    private int user_id;
+    private String name;
+    private String description;
+    private String imagepath;
     
+    //constructor
+    public Item(int user_id,String name, String description){
+        this.user_id = user_id;
+        this.name = name;
+        this.description = description;
+    }
+    //empty constructor
+    public Item(){};
+    
+    //getters and setters
+     public int getid() {
+        return id;
+    }
+     
+     public int getUserId() {
+        return user_id;
+    }
+
+    public String getname() {
+        return name;
+    }
+
+    public void setname(String name) {
+        this.name = name;
+    }
+
+    public String getdescription() {
+        return description;
+    }
+
+    public void setdescription(String description) {
+        this.description = description;
+    }
+
+    public String getimagePath() {
+        return imagepath;
+    }
+
+    public void setimagePath(String imagepath) {
+        this.imagepath = imagepath;
+    }
 }
